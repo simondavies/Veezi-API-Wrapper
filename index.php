@@ -3,7 +3,7 @@ require_once __DIR__ . '/src/start.php';
 
 use VeeziAPI\VeeziAPIWrapper as VeeziAPI;
 
-$Veezi = new VeeziAPI();
+$Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 
 ?>
 <!DOCTYPE html>

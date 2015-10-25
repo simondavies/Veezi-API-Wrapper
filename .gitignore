@@ -1,2 +1,6 @@
-
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
 /vendor/
+/src/config.php
