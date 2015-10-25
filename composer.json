@@ -1,0 +1,19 @@
+{
+    "name": "simondavies/veezi-api-wrapper",
+    "description": "A simple wrapper for the Veezi API, for use on websites",
+    "authors": [
+        {
+            "name": "Simon Davies",
+            "email": "simondavies@live.co.uk"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.1",
+        "nesbot/carbon": "^1.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "VeeziAPI\\": "src/VeeziAPI/"
+        }
+    }
+}
