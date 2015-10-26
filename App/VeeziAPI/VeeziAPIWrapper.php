@@ -40,8 +40,11 @@ class VeeziAPIWrapper {
                $this->headers  = self::setHeaders();
                $this->client = new Client(['base_uri' => self::API_BASE_URI]);
          }
-
-         public function getFilms(){
+         /**
+          * get all the films 
+          * @return Array
+          */
+         public function films(){
             $films = array();
             $allFilms = $this->request('film');
 
@@ -50,6 +53,14 @@ class VeeziAPIWrapper {
             }
 
              return $films;
+         }
+         /**
+          * get the selected film details
+          * @return Array
+          */
+         public function selectedFilm($film_id){
+            $film = $this->request('film/' . $film_id);
+            return new Film($film);
          }
 
          /**
