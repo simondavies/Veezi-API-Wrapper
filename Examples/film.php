@@ -9,6 +9,8 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
      */
     $film = $Veezi->selectedFilm($film_id);
 
+    testFcn();
+
 }
 
 ?>
