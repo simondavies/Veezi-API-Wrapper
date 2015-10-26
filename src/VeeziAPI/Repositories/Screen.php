@@ -1,5 +1,5 @@
 <?php
-namespace VeeziAPI\Methods;
+namespace VeeziAPI\Repositories;
 
 /**
 * 

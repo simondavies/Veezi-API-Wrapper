@@ -5,6 +5,8 @@ use VeeziAPI\VeeziAPIWrapper as VeeziAPI;
 
 $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 
+$films = $Veezi->getFilms();
+//die(var_dump($Veezi->getFilms()));
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,11 @@ $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 <body>
     <div class="container">
         <h2>Simple Veezi App</h2>
-
+        <?php //-- lists films
+            foreach ($films as $film) {
+               echo '<h4>' . $film->getTitle() . '<br /><small>' . $film->getStartDate()->format('l jS \\of F Y h:i:s A') .  '</small><h4 />';
+            }
+        ?>
     </div>
 </body>
 </html>
