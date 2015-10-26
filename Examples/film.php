@@ -8,9 +8,10 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
      * Get the requested film data
      */
     $film = $Veezi->selectedFilm($film_id);
-
-    testFcn();
-
+    /**
+     * sort out the peoples into their roles
+     */
+    $roles = createRolesListing($film->getPeople());
 }
 
 ?>
@@ -23,16 +24,38 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
         </div>
         <p class="lead"><?= $film->getSynopsis(); ?></p>
         <button type="button" class="btn btn-primary">Book Now</button>
+        
         <hr />
-        <h4>Cast</h4>
-        <ul class="list-unstyled">
-            <?php
-                foreach ($film->getPeople() as $people) {
-                   echo '<li>' . $people->getName() . ' <small class="text-muted">(' .  $people->getRole() . ')</small></li>';
-                }
-            ?>
-        </ul>
+
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Actors</h4>
+                <?php
+                    echo '<ul class="list-unstyled">';
+                        foreach ($roles['actors'] as $actors) { echo '<li>' . $actors . '</li>';}
+                    echo '</ul>';
+                ?>
+            </div>
+            <div class="col-md-4">
+                <h4>Directors</h4>
+                <?php
+                    echo '<ul class="list-unstyled">';
+                        foreach ($roles['directors'] as $directors) { echo '<li>' . $directors . '</li>';}
+                    echo '</ul>';
+                ?>
+            </div>
+            <div class="col-md-4">
+                <h4>Producers</h4>
+                <?php
+                    echo '<ul class="list-unstyled">';
+                        foreach ($roles['producers'] as $producers) { echo '<li>' . $producers . '</li>';}
+                    echo '</ul>';
+                ?>
+            </div>
+        </div>
+
         <br /><hr />
+        
         <a href="films.php">< Back To Listings</a>
 
     </div>
