@@ -30,7 +30,7 @@ class Film
      * @return Integer
      */
     public function getId(){
-        return (int)$this->film['id'];
+        return (string) $this->film['id'];
     }
     /**
      * the title of the current film
