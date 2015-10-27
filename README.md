@@ -1,5 +1,6 @@
 # Veezi-API-Wrapper
 A basic PHP wrapper for the [Veezi API](http://api.us.veezi.com/Help). 
+
 ** THIS IS STILL IN DEVELOPEMENT AND CAN CHANGE **
 
 While being asked to look into the Veezi API,  to enable a website to display its relevant film data onto the site, so not to duplicate work etc. I would need to do a bit of work to manipulate the current data returned, to be used on a website, so not being able to find any current PHP code for use with the Veezi API, thought be nice to build this and thne make it available to Veezi as well as others. 
