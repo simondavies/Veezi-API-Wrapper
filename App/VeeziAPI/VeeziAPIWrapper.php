@@ -2,6 +2,7 @@
 namespace VeeziAPI;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use VeeziAPI\Repositories\Film\Film as Film;
 
 /**
@@ -64,7 +65,7 @@ class VeeziAPIWrapper {
          public function selectedFilm($film_id){
                //-- currently the film ID is a string so lets validate this
                if(is_string($film_id) && !empty($film_id)){
-                 return new Film($this->request('film/' . $film_id));
+                  return new Film($this->request('film/' . $film_id));
                }
                return fasle;
          }
@@ -74,8 +75,12 @@ class VeeziAPIWrapper {
           * @return  String
           */
          private function request($action){
-            $response = $this->client->request('GET', self::buildURI($action), $this->headers);
-            return json_decode($response->getBody()->getContents());
+               try {
+                     $response = $this->client->request('GET', self::buildURI($action), $this->headers);
+                     return json_decode($response->getBody()->getContents());
+               } catch (RequestException $e) {
+                     die(var_dump($e->getMessage()));
+               }
          }
          /**
           * build the requested uri paramters
