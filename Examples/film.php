@@ -20,7 +20,7 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
     <div class="container">
         <div class="page-header">
             <h3><?=$film->getTitle(); ?></h3>
-            <p class="text-muted"><?= $film->getGenre(); ?> / <?= $film->getRating()['rate']; ?>  - <?= $film->getRating()['reason']; ?></p>
+            <p class="text-muted"><?= $film->getGenre(); ?> / <?= $film->getRating()['rate']; ?>  - <?= $film->getRating()['reason']; ?><br /><?= $film->getStartDate()->format('l jS \\of F Y');?></p>
         </div>
         <p class="lead"><?= $film->getSynopsis(); ?></p>
         <button type="button" class="btn btn-primary">Book Now</button>
