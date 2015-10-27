@@ -53,7 +53,7 @@ $film->getSynopsis();
 
 //--film people Actor, Director, Producer
 $film->getPeople();
-```
+``
 
 There are also other options available to a film instance, some more below.
 - `$film->getGenre()`
@@ -61,40 +61,49 @@ There are also other options available to a film instance, some more below.
 - `$film->getLanguage()`
 - `$film->getStartDate()`
 
-I have created a helper file also include to save time of other tasks.
+There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a [Carbon](https://github.com/briannesbitt/Carbon) instance, so it can be converted using any of the methods available through Carbon,
+
+```php
+//-- set date as a readable date
+$film->getStartDate()->format('l jS \\of F Y');
+```
+
+I have also created a helper file, to help save time on other tasks, as not sure they should be part of the actual classes themselves for now.
+An example of one of these helper functions can be seen below.
 
 **EG: List the people with in their roles. (Actor/Director/Producer)**
 
 ```php
-//-- to order the people into the roles 
+//-- to order the people by their roles 
 $roles = createRolesListing($film->getPeople());
 
 <div class="row">
-            <div class="col-md-4">
-                <h4>Actors</h4>
-                <?php
-                    echo '<ul class="list-unstyled">';
-                        foreach ($roles['actors'] as $actors) { echo '<li>' . $actors . '</li>';}
-                    echo '</ul>';
-                ?>
-            </div>
-            <div class="col-md-4">
-                <h4>Directors</h4>
-                <?php
-                    echo '<ul class="list-unstyled">';
-                        foreach ($roles['directors'] as $directors) { echo '<li>' . $directors . '</li>';}
-                    echo '</ul>';
-                ?>
-            </div>
-            <div class="col-md-4">
-                <h4>Producers</h4>
-                <?php
-                    echo '<ul class="list-unstyled">';
-                        foreach ($roles['producers'] as $producers) { echo '<li>' . $producers . '</li>';}
-                    echo '</ul>';
-                ?>
-            </div>
+    <div class="col-md-4">
+        <h4>Actors</h4>
+        <?php
+            echo '<ul class="list-unstyled">';
+                foreach ($roles['actors'] as $actors) { echo '<li>' . $actors . '</li>';}
+            echo '</ul>';
+        ?>
+    </div>
+    <div class="col-md-4">
+        <h4>Directors</h4>
+        <?php
+            echo '<ul class="list-unstyled">';
+                foreach ($roles['directors'] as $directors) { echo '<li>' . $directors . '</li>';}
+            echo '</ul>';
+        ?>
+    </div>
+    <div class="col-md-4">
+        <h4>Producers</h4>
+        <?php
+            echo '<ul class="list-unstyled">';
+                foreach ($roles['producers'] as $producers) { echo '<li>' . $producers . '</li>';}
+            echo '</ul>';
+        ?>
         </div>
+    </div>
+</div>
 ```
 
 The output woudl be somethig like:
@@ -103,13 +112,6 @@ Actors | Directors | Producers
 ------------ | ------------- | -------------
 Actor Name | Directors Name | Producers Name
 
-
-There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a [Carbon](https://github.com/briannesbitt/Carbon) instance, so it can be converted using any of the methods available through Carbon,
-
-```php
-//-- set date as a readable date
-$film->getStartDate()->format('l jS \\of F Y');
-```
 
 ##Installation
 
