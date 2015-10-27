@@ -1,5 +1,7 @@
 # Veezi-API-Wrapper
-A basic wrapper for the [Veezi Film API](http://api.us.veezi.com/Help). Its designed to help users get the data returned from the api and utilise on their websites, in a much easier format.
+A basic PHP wrapper for the [Veezi API](http://api.us.veezi.com/Help). 
+
+While being asked to look into the Veezi API,  to enable a website to display its relevant film data onto the site, so not to duplicate work etc. I would need to do a bit of work to manipulate the current data returned, to be used on a website, so not being able to find any current PHP code for use with the Veezi API, thought be nice to build this and thne make it available to Veezi as well as others. 
 
 ##Official Documentation
 Offical documentation on the Veezi API can be found [Veezi API](http://api.us.veezi.com/Help)
@@ -7,11 +9,19 @@ Offical documentation on the Veezi API can be found [Veezi API](http://api.us.ve
 ##Code Examples
 Included within the repo is an examples folder, here you can find a few working examples of the various options.
 
-Below is an example on how to get a list of all films assigned to that Site (Cinema).
+###Films
+***Get and list all films***
 
 ```php
+//-- get the autoload page
+require_once __DIR__ . '../../vendor/autoload.php';
+
+//-- load in a some settings/configuration file.
+require_once __DIR__ . '/config.php';
+
 use VeeziAPI\VeeziAPIWrapper as VeeziAPI;
 $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
+
 //--get a list of all films
 $films = $Veezi->films();
 //--loop throught the result and list by film title
@@ -20,11 +30,18 @@ foreach ($films as $film) {
     }
 ```
 
-Getting a particular film.
+***Get a particular film***
 
 ```php
+//-- get the autoload page
+require_once __DIR__ . '../../vendor/autoload.php';
+
+//-- load in a some settings/configuration file.
+require_once __DIR__ . '/config.php';
+
 use VeeziAPI\VeeziAPIWrapper as VeeziAPI;
 $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
+
 //--get a selected film
 $film = $Veezi->selectedFilm($film_id);
 
@@ -50,22 +67,19 @@ There are also other options availbe to a film instance.
 - `$film->getLanguage()`
 - `$film->getStartDate()`
 
-There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a Carbon instance (https://github.com/briannesbitt/Carbon), so it can be converted using any of the methods availabele through Carbon,
+There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a [Carbon](https://github.com/briannesbitt/Carbon) instance, so it can be converted using any of the methods available through Carbon,
 
 ```php
 //-- set date as a readable date
 $film->getStartDate()->format('l jS \\of F Y');
 ```
 
-##Motivation
-I was ask to look into using the Veezi API  and to see what would be possible to build an accompanying website.  In looking at the results and the basics of it, I noticed that I would have to refactor the callbacks inorder to use for website usage, so when searching around I could not find a php wrapper for this API, and thought best to look at doing one where not only would help me but also others.
+##Installation
 
- ##Installation
-
- mmm! let me think this one through at the moment as its simple but does rely on a couple of libraries for assitance. TBC
+ mmm! let me think this one through at the moment as its simple but does rely on a couple of libraries for assistance. TBC
 
 ##To Do
-As this is currently on going I have a list of todo's below:
+As this is currently on going I have a list of to do's below:
 
 - [x] Build the Film Classes
 - [ ] Build the Cinema classes
@@ -73,12 +87,14 @@ As this is currently on going I have a list of todo's below:
 - [ ] Build the Sessions classes
 - [ ] Build the Web Sessions classes
 - [x] Add examples 
-- [ ] More in-depth read me file or wiki 
 
  Add more functionality to the films area such as:
 - [ ] Create booking links for films
 - [ ] Create film dates for each film
 
+- [ ] More in-depth read me file or wiki 
+
 ### License
 
 The Veezi-API-Wrapper is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
