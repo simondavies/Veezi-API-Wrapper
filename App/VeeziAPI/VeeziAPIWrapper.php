@@ -51,11 +51,9 @@ class VeeziAPIWrapper {
                $films = [];
                try {
                   $allFilms = $this->request('film');
-
                   foreach($allFilms as $film) {
                      $films[] = new Film($film);
                   }
-
                   return $films;
                } catch (Exception $e){
                      logErrors($e->getMessage());
