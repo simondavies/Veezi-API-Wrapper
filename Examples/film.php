@@ -56,7 +56,7 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
 
         <br /><hr />
         
-        <a href="films.php">< Back To Listings</a>
+        <a href="films.php">&lang;  Films</a>
 
     </div>
 

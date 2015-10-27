@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style>
-        .container {margin: 40px auto}
+        .container {margin: 25px auto; margin-bottom: 40px;}
         .ellipsis {
             overflow: hidden;
             white-space: nowrap;

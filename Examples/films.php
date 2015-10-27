@@ -14,6 +14,7 @@ $films = $Veezi->films();
         <div class="page-header">
             <h3>My Veezi Film Listing</h3>
         </div>
+        <p class="text-muted">Click on a film below for more details.</p>
         
         <div class="list-group">
             <?php //-- lists films
@@ -25,6 +26,9 @@ $films = $Veezi->films();
                 }
             ?>
         </div>
+        <hr />
+        
+        <a href="index.php">&lang;  Examples</a>
 
     </div>
 
