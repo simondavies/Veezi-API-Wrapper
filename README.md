@@ -53,19 +53,56 @@ $film->getSynopsis();
 
 //--film people Actor, Director, Producer
 $film->getPeople();
+'''
 
-//-- to order the people into the roles 
-$roles = createRolesListing($film->getPeople());
-
-echo '<ul>';
-    foreach ($roles['actors'] as $actors) { echo '<li>' . $actors . '</li>';}
-echo '</ul>';
-```
-There are also other options availbe to a film instance.
+There are also other options available to a film instance, some more below.
 - `$film->getGenre()`
 - `$film->getFormat()`
 - `$film->getLanguage()`
 - `$film->getStartDate()`
+
+I have created a helper file also include to save time of other tasks.
+
+**EG: List the people with in their roles. (Actor/Director/Producer)**
+
+```php
+//-- to order the people into the roles 
+$roles = createRolesListing($film->getPeople());
+
+<div class="row">
+            <div class="col-md-4">
+                <h4>Actors</h4>
+                <?php
+                    echo '<ul class="list-unstyled">';
+                        foreach ($roles['actors'] as $actors) { echo '<li>' . $actors . '</li>';}
+                    echo '</ul>';
+                ?>
+            </div>
+            <div class="col-md-4">
+                <h4>Directors</h4>
+                <?php
+                    echo '<ul class="list-unstyled">';
+                        foreach ($roles['directors'] as $directors) { echo '<li>' . $directors . '</li>';}
+                    echo '</ul>';
+                ?>
+            </div>
+            <div class="col-md-4">
+                <h4>Producers</h4>
+                <?php
+                    echo '<ul class="list-unstyled">';
+                        foreach ($roles['producers'] as $producers) { echo '<li>' . $producers . '</li>';}
+                    echo '</ul>';
+                ?>
+            </div>
+        </div>
+```
+
+The output woudl be somethig like:
+
+Actors | Directors | Producers
+------------ | ------------- | -------------
+Actor Name | Directors Name | Producers Name
+
 
 There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a [Carbon](https://github.com/briannesbitt/Carbon) instance, so it can be converted using any of the methods available through Carbon,
 
@@ -88,7 +125,7 @@ As this is currently on going I have a list of to do's below:
 - [ ] Build the Web Sessions classes
 - [x] Add examples 
 
- Add more functionality to the films area such as:
+Add more functionality to the films area such as:
 - [ ] Create booking links for films
 - [ ] Create film dates for each film
 
