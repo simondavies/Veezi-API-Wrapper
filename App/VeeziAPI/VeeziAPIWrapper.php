@@ -32,7 +32,9 @@ class VeeziAPIWrapper {
           * GuzzleHttp\Client Hold the Guzzle client instance
           */
          private $client;
-
+         /**
+          * @var array set the headers to be sent with the guzze request
+          */
          private $headers;
 
          function __construct($apitoken) {
@@ -42,7 +44,7 @@ class VeeziAPIWrapper {
          }
          /**
           * get all the films 
-          * @return Array
+          * @return Array/VeeziAPI\Repositories\Film\Film
           */
          public function films(){
             $films = array();
@@ -55,14 +57,17 @@ class VeeziAPIWrapper {
              return $films;
          }
          /**
-          * get the selected film details
-          * @return Array
+          * Get the selected film
+          * @param  String $film_id 
+          * @return VeeziAPI\Repositories\Film\Film
           */
          public function selectedFilm($film_id){
-            $film = $this->request('film/' . $film_id);
-            return new Film($film);
+               //-- currently the film ID is a string so lets validate this
+               if(is_string($film_id) && !empty($film_id)){
+                 return new Film($this->request('film/' . $film_id));
+               }
+               return fasle;
          }
-
          /**
           * send the request to the API nad return the result as an array
           * @param  String $action the query to action
@@ -85,7 +90,7 @@ class VeeziAPIWrapper {
           * @param [type] $apikey [description]
           */
           private function setHeaders(){
-             return  [
+             return [
                   'headers' => $this->apiToken,
                   'Accept' => 'application/json',
                   'Content-Type' => 'application/json',
