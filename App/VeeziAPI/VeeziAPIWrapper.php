@@ -48,14 +48,18 @@ class VeeziAPIWrapper {
           * @return Array/VeeziAPI\Repositories\Film\Film
           */
          public function films(){
-            $films = array();
-            $allFilms = $this->request('film');
+               $films = [];
+               try {
+                  $allFilms = $this->request('film');
 
-            foreach($allFilms as $film){
-               $films[] = new Film($film);
-            }
+                  foreach($allFilms as $film) {
+                     $films[] = new Film($film);
+                  }
 
-             return $films;
+                  return $films;
+               } catch (Exception $e){
+                     logErrors($e->getMessage());
+               }
          }
          /**
           * Get the selected film
@@ -79,7 +83,7 @@ class VeeziAPIWrapper {
                      $response = $this->client->request('GET', self::buildURI($action), $this->headers);
                      return json_decode($response->getBody()->getContents());
                } catch (RequestException $e) {
-                     die(var_dump($e->getMessage()));
+                     logErrors($e->getMessage());
                }
          }
          /**
