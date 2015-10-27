@@ -53,7 +53,7 @@ $film->getSynopsis();
 
 //--film people Actor, Director, Producer
 $film->getPeople();
-'''
+```
 
 There are also other options available to a film instance, some more below.
 - `$film->getGenre()`
