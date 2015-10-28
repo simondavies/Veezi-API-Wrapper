@@ -132,7 +132,7 @@ class Film
         $this->film = [
             'id' => $film->Id,
             'title' => $film->Title,
-            'title' => null,
+            'poster' => null,
             'synopsis' => $film->Synopsis,
             'start_date' => new Carbon($film->OpeningDate),
             'genre' => $film->Genre,
