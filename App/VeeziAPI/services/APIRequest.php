@@ -20,10 +20,10 @@ class APIRequest
           */
          private $headers;
 
-        function __construct($api_token)
+        function __construct()
         {
                 $this->headers  = [
-                      'headers' => ['VeeziAccessToken' => $api_token],
+                      'headers' => ['VeeziAccessToken' => VEEZI_API_TOKEN],
                       'Accept' => 'application/json',
                       'Content-Type' => 'application/json',
                   ];

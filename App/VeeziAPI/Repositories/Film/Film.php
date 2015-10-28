@@ -2,7 +2,10 @@
 namespace VeeziAPI\Repositories\Film;
 
 use Carbon\Carbon;
+use VeeziAPI\Repositories\Film\Dates as Date;
 use VeeziAPI\Repositories\Film\Person;
+use VeeziAPI\Services\APIRequest;
+
 /**
  * Film class
  *
@@ -14,7 +17,7 @@ use VeeziAPI\Repositories\Film\Person;
  * @version 0.1
  * 
  */
-class Film 
+class Film extends APIRequest
 {
     /**
      * @var Object hold film details
@@ -22,6 +25,7 @@ class Film
     private $film;
 
     function __construct($film) {
+        parent::__construct();
         self::setUpFilmData($film);
     }
     /**
@@ -58,6 +62,13 @@ class Film
      */
     public function getStartDate(){
         return $this->film['start_date'];
+    }
+    /**
+     * the available dates / times 
+     * @return String
+     */
+    public function getDates(){
+        return $this->film['dates'];
     }
     /**
      * the genre of the current film limited to one
@@ -134,6 +145,7 @@ class Film
             'poster' => null,
             'synopsis' => $film->Synopsis,
             'start_date' => new Carbon($film->OpeningDate),
+            'dates' => self::getFilmDates($film->Id),
             'genre' => $film->Genre,
             'distributor' => $film->Distributor,
             'rating' => [
@@ -163,4 +175,15 @@ class Film
         return $people;
     }
       
+    private function getFilmDates($film_id){
+        $selected_dates = [];
+        foreach (parent::request('session') as $date) {
+            if($date->FilmId === $film_id){
+                $selected_dates[] = new Date($date);
+            }
+        }
+        return $selected_dates;
+    }
+
+    
 }

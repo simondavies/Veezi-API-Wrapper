@@ -26,6 +26,27 @@
  }
 
 
+ if (! function_exists('sortShowDateTimes')) {
+
+        function sortShowDateTimes($dates){
+                $sorted_dates = [];
+                $sorted_times = [];
+                foreach ($dates as $date) {
+                    $readable_date = $date->getStartDate()->format('l jS \of F Y');
+                    //-- if date is already set then just add times to that date.
+                    if(in_array($readable_date, $date)){
+                        $sorted_dates[$readable_date][] = $date->getStartDate()->format('H:i:');
+                    } else {
+                        $sorted_dates[] = $date->getStartDate()->format('l jS \of F Y');
+                        $sorted_dates[$readable_date][] = $date->getStartDate()->format('H:i:');
+                    }
+                }
+        
+            return $sorted_dates;
+        }
+
+ }
+
  if (! function_exists('logErrors')) {
         /**
          * a simple visual output of any exceptions called 

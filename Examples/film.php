@@ -9,6 +9,12 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
      */
     $film = $Veezi->selectedFilm($film_id);
     /**
+     * seperate out the dates for use 
+     */
+    $film_dates = sortShowDateTimes($film->getDates());
+
+    die(var_dump($film_dates));
+    /**
      * sort out the peoples into their roles
      */
     $roles = createRolesListing($film->getPeople());
@@ -46,7 +52,13 @@ $menu_active = 'films';
             </div>
             <div class="col-md-8">
                 <p class="lead"><?= $film->getSynopsis(); ?></p>
-                <button type="button" class="btn btn-primary">Book Now</button>
+                <!-- <button type="button" class="btn btn-primary">Book Now</button> -->
+
+                <?php
+                    // foreach ($film_dates as $dates) {
+                    //     echo '<p>' . $dates->getStartDate()->format('l jS \of F Y H:i:s') . '</p>';
+                    // }
+                ?>
             </div>
         </div>
         <!-- end of Film Image/details -->

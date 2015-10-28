@@ -2,7 +2,9 @@
 namespace VeeziAPI;
 
 use VeeziAPI\Services\APIRequest;
-use VeeziAPI\Repositories\Film\Film as Film;
+use VeeziAPI\Repositories\Film\FilmListing;
+use VeeziAPI\Repositories\Film\Film;
+use VeeziAPI\Repositories\Film\Dates as Date;
 
 /**
  * VeeziAPIWrapper class
@@ -17,19 +19,19 @@ use VeeziAPI\Repositories\Film\Film as Film;
  */
 class VeeziAPIWrapper extends APIRequest {
 
-         function __construct($api_token) {
-              parent::__construct($api_token);
+         function __construct() {
+              parent::__construct();
           }
          /**
           * get all the films 
-          * @return Array/VeeziAPI\Repositories\Film\Film
+          * @return Array - VeeziAPI\Repositories\Film\FilmListing
           */
          public function films(){
                $films = [];
                try {
                   $all_films = parent::request('film');
                   foreach($all_films as $index => $film) {
-                      $films[] = new Film($film);
+                      $films[] = new FilmListing($film);
                   }
                   return $films;
                } catch (Exception $e){
@@ -45,7 +47,8 @@ class VeeziAPIWrapper extends APIRequest {
          public function selectedFilm($film_id){
                //-- currently the film ID is a string so lets validate this
                if(is_string($film_id) && !empty($film_id)){
-                  return new Film(parent::request('film/' . $film_id));
+                  $selected_film = new Film(parent::request('film/' . $film_id));
+                  return $selected_film;
                }
                return fasle;
          }
