@@ -12,12 +12,17 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
      * seperate out the dates for use 
      */
     $film_dates = sortShowDateTimes($film->getDates());
-
-    die(var_dump($film_dates));
     /**
      * sort out the peoples into their roles
      */
     $roles = createRolesListing($film->getPeople());
+    var_dump($film_dates);
+    exit;
+     foreach ($film_dates as $day =>$dates) {
+           // echo '<p>' . $day . '</p>';
+            var_dump($day); 
+        }
+    exit;
 } else {
     header('Location: films.php');
     exit;
@@ -55,9 +60,10 @@ $menu_active = 'films';
                 <!-- <button type="button" class="btn btn-primary">Book Now</button> -->
 
                 <?php
-                    // foreach ($film_dates as $dates) {
-                    //     echo '<p>' . $dates->getStartDate()->format('l jS \of F Y H:i:s') . '</p>';
-                    // }
+                    foreach ($film_dates as $day =>$dates) {
+                       // echo '<p>' . $day . '</p>';
+                        var_dump($day); 
+                    }
                 ?>
             </div>
         </div>
