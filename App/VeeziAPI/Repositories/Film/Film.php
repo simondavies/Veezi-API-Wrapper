@@ -40,6 +40,13 @@ class Film
         return $this->film['title'];
     }
     /**
+     * the title of the current film
+     * @return String
+     */
+    public function getPoster(){
+        return $this->film['poster'];
+    }
+    /**
      * the synopsis of the current film
      * @return String
      */
@@ -125,6 +132,7 @@ class Film
         $this->film = [
             'id' => $film->Id,
             'title' => $film->Title,
+            'title' => null,
             'synopsis' => $film->Synopsis,
             'start_date' => new Carbon($film->OpeningDate),
             'genre' => $film->Genre,
