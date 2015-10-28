@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style>
-        .container {margin: 25px auto; margin-bottom: 40px;}
+        body { padding-top: 70px; }
+        .container {margin: 0 auto; margin-bottom: 40px;}
+        h3 {margin-top: 0;}
         .ellipsis {
             overflow: hidden;
             white-space: nowrap;

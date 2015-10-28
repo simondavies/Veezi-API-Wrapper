@@ -12,18 +12,33 @@ if(isset($_GET['filmid']) && !empty($_GET['filmid'])) {
      * sort out the peoples into their roles
      */
     $roles = createRolesListing($film->getPeople());
+} else {
+    header('Location: films.php');
+    exit;
 }
 
+//--- the menu active page
+$menu_active = 'films';
 ?>
     <?php include_once 'inc/header.inc.php'; ?>
-     
+    <?php include_once 'inc/menu.inc.php'; ?>
+
     <div class="container">
-        <!-- Film title -->
-        <div class="page-header">
-            <h3><?=$film->getTitle(); ?></h3>
-            <p class="text-muted"><?= $film->getGenre(); ?> / <?= $film->getRating()['rate']; ?>  - <?= $film->getRating()['reason']; ?><br /><?= $film->getStartDate()->format('l jS \\of F Y');?></p>
+        <!-- Film Header -->
+        <div class="row">
+            <div class="col-md-10">
+                    <h3><?=$film->getTitle(); ?></h3>
+                    <p class="text-muted"><?= $film->getGenre(); ?> / <?= $film->getRating()['reason']; ?><br /><?= $film->getStartDate()->format('l jS \\of F Y');?></p>
+            </div>
+            <!-- Rating -->
+            <div class="col-md-2">
+                <img src="imgs/certs/<?= $film->getRating()['rate']; ?>.png" 
+                        alt="Rating Cert: <?= $film->getRating()['rate']; ?>" 
+                        titile="Rating Cert: <?= $film->getRating()['rate']; ?>" width="80" />
+            </div>
         </div>
-        <!-- end of Film title -->
+        <!-- end of Film Header -->
+        <hr /><br />
         <!-- Film Image/details -->
         <div class="row">
             <div class="col-md-4">

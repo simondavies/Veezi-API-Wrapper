@@ -6,9 +6,12 @@ require_once __DIR__ . '../../App/start.php';
  */
 $films = $Veezi->films();
 
+//--- the menu active page
+$menu_active = 'films';
 ?>
-    <?php include_once 'inc/header.inc.php'; ?>
-     
+    <?php include_once 'inc/header.inc.php'; ?>     
+    <?php include_once 'inc/menu.inc.php'; ?>
+
     <div class="container">
         
         <div class="page-header">
