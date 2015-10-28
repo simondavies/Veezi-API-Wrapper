@@ -3,7 +3,6 @@ namespace VeeziAPI\Repositories\Film;
 
 use Carbon\Carbon;
 use VeeziAPI\Repositories\Film\Person;
-
 /**
  * Film class
  *
