@@ -11,11 +11,11 @@ if (isset($_GET['filmid']) && !empty($_GET['filmid'])) {
 	/**
 	 * seperate out the dates for use
 	 */
-	$film_dates = sortShowDateTimes($film->getDates());
+	$film_start_dates = $film->getDatesAndTimes();
 	/**
 	 * sort out the peoples into their roles
 	 */
-	$roles = createRolesListing($film->getPeople());
+	$roles = $film->getRoles();
 
 } else {
 	header('Location: films.php');
@@ -53,7 +53,7 @@ $menu_active = 'films';
                 <p class="lead"><?=$film->getSynopsis();?></p>
                 <!-- list the date and times -->
                 <?php
-foreach ($film_dates as $date => $times) {
+foreach ($film_start_dates as $date => $times) {
 	echo '<h5>' . $date . '</h5>';
 	echo '<div class="btn-group" role="group" aria-label="">';
 	foreach ($times as $time) {

@@ -63,12 +63,22 @@ class Film extends APIRequest
     public function getStartDate(){
         return $this->film['start_date'];
     }
-    /**
-     * the available dates / times 
-     * @return String
+    /** 
+     * @return Array the overall dates and times available 
      */
     public function getDates(){
         return $this->film['dates'];
+    }
+    /** 
+     * @return Array Return the readble date/time details 
+     */
+    public function getDatesAndTimes(){
+        $datetime = [];
+        foreach ($this->film['dates'] as $date) {
+            $readable_date = $date->getStartDate()->format('l jS \of F Y');
+            $datetime[$readable_date][] = $date->getStartDate()->format('H:i');
+        }
+        return $datetime;
     }
     /**
      * the genre of the current film limited to one
@@ -127,13 +137,18 @@ class Film extends APIRequest
         return $this->film['people'];
     }
     /**
+     * @return Array return a list of roles and the people within
+     */
+    public function getRoles(){
+        return self::sortPeopleIntoRoles();
+    }
+    /**
      * the status of the current film: Active, Inactive, Deleted
      * @return String 
      */
     public function getStatus(){
         return $this->film['status'];
     }
-
     /**
      * set up the film data as a bit more readable
      * @param Array $film film data
@@ -174,7 +189,31 @@ class Film extends APIRequest
         }
         return $people;
     }
-      
+    /**
+     * sort out the people into their roles
+     * @param Array $people
+     * @return Array
+     */
+    private function sortPeopleIntoRoles() {
+        $actors = [];
+        $directors = [];
+        $producers = [];
+        foreach (self::getPeople() as $person) {
+            if ($person->getRole() === 'Actor') {$actors[] = $person->getName();}
+            if ($person->getRole() === 'Director') {$directors[] = $person->getName();}
+            if ($person->getRole() === 'Producer') {$producers[] = $person->getName();}
+        }
+        return [
+            'actors' => $actors,
+            'directors' => $directors,
+            'producers' => $producers,
+        ];
+    }
+    /**
+     * get the actual dates for the selcted film
+     * @param  string $film_id
+     * @return Array
+     */
     private function getFilmDates($film_id){
         $selected_dates = [];
         foreach (parent::request('session') as $date) {
@@ -184,6 +223,5 @@ class Film extends APIRequest
         }
         return $selected_dates;
     }
-
     
 }

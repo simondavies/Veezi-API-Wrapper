@@ -28,56 +28,57 @@ class Dates {
 		return (int) $this->date['id'];
 	}
 	/**
-	 * @return
+	 * @return String return the film id
 	 */
 	public function getFilmId() {
 		return (string) $this->date['film_id'];
 	}
 	/**
-	 * @return
+	 * @return String return the package id
 	 */
 	public function getPackageId() {
 		return (string) $this->date['package_id'];
 	}
 	/**
-	 * @return
+	 * @return String return the type
 	 */
 	public function getType() {
 		return (string) $this->date['type'];
 	}
 	/**
-	 * @return
+	 * @return String return the status
 	 */
 	public function getStatus() {
 		return (string) $this->date['status'];
 	}
 	/**
-	 * @return
+	 * @return String return the start date/time
 	 */
 	public function getStartDate() {
 		return $this->date['start'];
 	}
 	/**
-	 * @return
+	 * @return String return the end date / time
 	 */
 	public function getEndDate() {
 		return $this->date['end'];
 	}
 	/**
-	 * @return
+	 * @return String return the actual film start date/time
 	 */
 	public function getFeatureStartDate() {
 		return $this->date['feature_start'];
 	}
 	/**
-	 * @return
+	 * @return String return the actual film end start / time
 	 */
 	public function getFeatureEndDate() {
 		return $this->date['feature_end'];
 	}
 	/**
-	 * @return
-	 */
+             * set up the returnable date details
+             * @param array $date 
+             */
 	private function setReadableDates($date) {
 		//-- if the sale method is not available on line then no need to include it
 		if (in_array('WWW', $date->SalesVia)) {
