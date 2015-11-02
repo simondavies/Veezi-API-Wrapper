@@ -177,15 +177,37 @@ composer.phar require simondavies/veezi-api-wrapper
 **Via SSH**
 ```
 git clone git@github.com:simondavies/Veezi-API-Wrapper.git target-directory
-cd target-directory
 ```
 **Via HTTPS**
 ```
 git clone https://github.com/simondavies/Veezi-API-Wrapper.git target-directory
-cd target-directory
 ```
 
-Please view the other required repos' install guidelines, if not installing from composer.
+####Set Up
+
+Once the project has been down loaded we need to continue the initial set up.
+
+```
+cd target-directory
+composer update
+```
+
+Add a config file.
+```
+cd App
+cp config.example.php config.php
+```
+
+Update the following details with your Veezi API and Site Tokens.
+
+```
+define('VEEZI_API_TOKEN', '?????????');
+define('VEEZI_SITE_TOKEN', '??????????');
+```
+
+Once thats been done, you can check that all is OK by visiting the Examples folder within a Browser.
+
+***Please view the other required repos' install guidelines, if not installing from composer.***
 
 
 ##To Do
