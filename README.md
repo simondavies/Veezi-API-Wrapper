@@ -28,8 +28,8 @@ $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 $films = $Veezi->films();
 //--loop throught the result and list by film title
 foreach ($films as $film) {
-    echo '<p>' . $film->getTitle(); . '</p>';
-    }
+    echo '<a href="film.php?filmid=' . $film->getId() . '">' . $film->getTitle() . '</a>';
+}
 ```
 
 ***Get a particular film***
@@ -48,20 +48,21 @@ $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 $film = $Veezi->selectedFilm($film_id);
 
 //-- film title
-$film->getTitle();
+$film_title = $film->getTitle();
 
 //-- film synopsis
-$film->getSynopsis();
+$film_synopsis = $film->getSynopsis();
 
 //--film people Actor, Director, Producer
-$film->getPeople();
+$film_people = $film->getPeople();
 ```
 
 There are also other options available to a film instance, some more below.
 - `$film->getGenre()`
 - `$film->getFormat()`
 - `$film->getLanguage()`
-- `$film->getStartDate()`
+- `$film->getDatesAndTimes()`
+- `$film->getRoles()`
 
 There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a [Carbon](https://github.com/briannesbitt/Carbon) instance, so it can be converted using any of the methods available through Carbon,
 
@@ -69,15 +70,11 @@ There are also some that are returned as Arrays and other objects, take the `$fi
 //-- set date as a readable date
 $film->getStartDate()->format('l jS \\of F Y');
 ```
-
-I have also created a helper file, to help save time on other tasks, as not sure they should be part of the actual classes themselves for now.
-An example of one of these helper functions can be seen below.
-
-**EG: List the people with in their roles. (Actor/Director/Producer)**
+**EG: Sort people in their roles. (Actor/Director/Producer)**
 
 ```php
-//-- to order the people by their roles 
-$roles = createRolesListing($film->getPeople());
+//-- return a list of roles and the people for each role 
+$roles = $film->getRoles();
 
 <div class="row">
     <div class="col-md-4">
