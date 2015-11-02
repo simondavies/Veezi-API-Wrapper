@@ -8,23 +8,25 @@ While being asked to look into the Veezi API,  to enable a website to display it
 ##Official Documentation
 Offical documentation on the Veezi API can be found [Veezi API](http://api.us.veezi.com/Help)
 
-[Requirements](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#requiremnents)
-[Installation](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#installation)
-[Examples](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#code-examples)
-[To Do's](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#to-do)
-[License](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#license)
+- [Requirements](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#requiremnents)
+- [Installation](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#installation)
+- [Examples](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#code-examples)
+- [To Do's](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#to-do)
+- [License](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#license)
 
 ##Code Examples
 Included within the repo is an examples folder, here you can find a few working examples of the various options.
 
-[Film Listing](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-listing)
-[Selected Film](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#selected-film)
-[FIlm Roles/People](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-roles)
-[Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-dates-times-ticket-links)
+- [Film Listing](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-listing)
+- [Selected Film](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#selected-film)
+- [FIlm Roles/People](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-roles)
+- [Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-dates-times-ticket-links)
 
 
 ###Film Listings
-***Get and list all films***
+
+Get and display a list of films
+![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
 ```php
 //-- get the autoload page
@@ -43,9 +45,6 @@ foreach ($films as $film) {
     echo '<a href="film.php?filmid=' . $film->getId() . '">' . $film->getTitle() . '</a>';
 }
 ```
-***Film Listing Visual EG***
-
-![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
 ###Selected Film 
 
@@ -133,7 +132,8 @@ Actor Name | Directors Name | Producers Name
 
 List the selected films Dates and times, with booking links on the times.
 
-You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
+You can also get a list of dates and times for the selected film to display as clickable links to book tickets.
+
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
 
 ```php
@@ -166,20 +166,20 @@ foreach ($film_start_dates as $date => $times) {
 
 The recommended way to install this repo is through [Composer](http://getcomposer.org/)
 
-###Install Through Composer
+####Install Through Composer
 
 ```
 composer.phar require simondavies/veezi-api-wrapper
 ```
 
-###Install Via Github/Without Composer
+####Install Via Github/Without Composer
 
-####Via SSH
+**Via SSH**
 ```
 git clone git@github.com:simondavies/Veezi-API-Wrapper.git target-directory
 cd target-directory
 ```
-####Via HTTPS
+**Via HTTPS**
 ```
 git clone https://github.com/simondavies/Veezi-API-Wrapper.git target-directory
 cd target-directory
