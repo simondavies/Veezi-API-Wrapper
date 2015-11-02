@@ -33,7 +33,7 @@ $menu_active = '';
         <div class="row">
             <div class="col-md-10">
                     <h3><?=$film->getTitle();?></h3>
-                    <p class="text-muted"><?=$film->getGenre();?> / <?=$film->getRating()['reason'];?><br /><?=$film->getStartDate()->format('l jS \\of F Y');?></p>
+                    <p class="text-muted"><?=$film->getGenre();?> / <?=$film->getRating()['reason'];?></p>
             </div>
             <!-- Rating -->
             <div class="col-md-2">
@@ -52,6 +52,8 @@ $menu_active = '';
             <div class="col-md-8">
                 <p class="lead"><?=$film->getSynopsis();?></p>
                 <!-- list the date and times -->
+                <br />
+                <h4>Book Tickets</h4><hr />
                 <?php
 foreach ($film_start_dates as $date => $times) {
 	echo '<h5>' . $date . '</h5>';
@@ -67,7 +69,7 @@ foreach ($film_start_dates as $date => $times) {
             </div>
         </div>
         <!-- end of Film Image/details -->
-
+        <br /><br />
         <hr />
         <!-- people listing -->
         <div class="row">
