@@ -114,7 +114,7 @@ Actor Name | Directors Name | Producers Name
 ***Adding A list of dates and Times***
 
 You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
-![Veezi Film Dates/Times listings](https://www.dropbox.com/s/y8nkw2hq23yd8ff/Veezi-screenshot-DateAndTimes.png?dl=0)
+![Veezi Film Dates/Times listings](https://raw.githubusercontent.com/simondavies/Veezi-API-Wrapper/develop/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
 
 ```
 //-- Get the films dates and times
