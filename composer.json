@@ -2,11 +2,12 @@
     "name": "simondavies/veezi-api-wrapper",
     "version": "0.1",
     "description": "A simple PHP website wrapper for the Veezi API.",
+    "keywords": ["veezi", "api", "film listing"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Simon Davies",
             "email": "simondavies@live.co.uk",
-            "homepage": "https://github.com/simondavies"
         }
     ],
     "require": {
@@ -19,5 +20,6 @@
         "psr-4": {
             "VeeziAPI\\": "App/VeeziAPI/" 
           }
-    }
+    },
+    "minimum-stability" : "dev-master"
 }
