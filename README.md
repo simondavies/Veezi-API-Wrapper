@@ -137,9 +137,40 @@ foreach ($film_start_dates as $date => $times) {
 }
 ```
 
+##Requiremnents
+
+- PHP >= 5.4.0 
+- [Veezi](http://www.veezi.com/) Active Account
+- Veezi API Token
+- [guzzlehttp/guzzle](https://github.com/guzzle/guzzle)
+- [nesbot/Carbon](https://github.com/briannesbitt/Carbon)
+
+
 ##Installation
 
- mmm! let me think this one through at the moment as its simple but does rely on a couple of libraries for assistance. TBC
+The recommended way to install this repo is through [Composer](http://getcomposer.org/)
+
+###Install Through Composer
+
+```
+composer.phar require simondavies/veezi-api-wrapper
+``
+
+###Install Via Github/Without Composer
+
+####Via SSH
+```
+git clone git@github.com:simondavies/Veezi-API-Wrapper.git target-directory
+cd target-directory
+```
+####Via HTTPS
+```
+git clone https://github.com/simondavies/Veezi-API-Wrapper.git target-directory
+cd target-directory
+```
+
+Please view the other required repos' install guidelines, if not installing from composer.
+
 
 ##To Do
 As this is currently on going I have a list of to do's below:
