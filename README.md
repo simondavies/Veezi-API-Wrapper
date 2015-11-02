@@ -20,7 +20,7 @@ Included within the repo is an examples folder, here you can find a few working 
 - [Film Listing](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-listing)
 - [Selected Film](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#selected-film)
 - [FIlm Roles/People](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-roles)
-- [Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-dates-times-ticket-links)
+- [Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-datestimes--ticket-links)
 
 
 ###Film Listings
