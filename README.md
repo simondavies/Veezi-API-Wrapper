@@ -111,6 +111,25 @@ Actors | Directors | Producers
 ------------ | ------------- | -------------
 Actor Name | Directors Name | Producers Name
 
+***Adding A list of dates and Times***
+
+You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
+![Veezi Film Dates/Times listings](https://www.dropbox.com/s/y8nkw2hq23yd8ff/Veezi-screenshot-DateAndTimes.png?dl=0)
+
+```
+//-- Get the films dates and times
+$film_start_dates = $film->getDatesAndTimes();
+
+//-- Out put the Dates and times
+foreach ($film_start_dates as $date => $times) {
+    echo '<h5>' . $date . '</h5>';
+    echo '<div>';
+    foreach ($times as $time) {
+        echo '<button type="button">' . $time . '</button>';
+    }
+    echo '</div>';
+}
+
 
 ##Installation
 
