@@ -32,6 +32,7 @@ foreach ($films as $film) {
 }
 ```
 ***Film Listing Visual EG***
+
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
 ***Get a particular film and its details***
@@ -144,8 +145,8 @@ As this is currently on going I have a list of to do's below:
 - [ ] Build the Cinema classe(s)
 - [ ] Build the Screen classe(s)
 - [x] Add examples 
-- [ ] Create booking links for films
-- [ x] Create film dates for each film
+- [x] Create booking links for films
+- [x] Create film dates for each film
 - [ ] More in-depth read me file or wiki 
 
 ### License
