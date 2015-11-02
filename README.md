@@ -8,11 +8,25 @@ While being asked to look into the Veezi API,  to enable a website to display it
 ##Official Documentation
 Offical documentation on the Veezi API can be found [Veezi API](http://api.us.veezi.com/Help)
 
+- [Requirements](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#requiremnents)
+- [Installation](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#installation)
+- [Examples](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#code-examples)
+- [To Do's](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#to-do)
+- [License](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#license)
+
 ##Code Examples
 Included within the repo is an examples folder, here you can find a few working examples of the various options.
 
-###Films
-***Get and list all films***
+- [Film Listing](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-listing)
+- [Selected Film](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#selected-film)
+- [FIlm Roles/People](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-roles)
+- [Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-datestimes--ticket-links)
+
+
+###Film Listings
+
+Get and display a list of films
+![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
 ```php
 //-- get the autoload page
@@ -31,11 +45,8 @@ foreach ($films as $film) {
     echo '<a href="film.php?filmid=' . $film->getId() . '">' . $film->getTitle() . '</a>';
 }
 ```
-***Film Listing Visual EG***
 
-![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
-
-***Get a particular film and its details***
+###Selected Film 
 
 ```php
 //-- get the autoload page
@@ -73,7 +84,9 @@ There are also some that are returned as Arrays and other objects, take the `$fi
 //-- set date as a readable date
 $film->getStartDate()->format('l jS \\of F Y');
 ```
-**EG: Sort people in their roles. (Actor/Director/Producer)**
+
+###Film Roles 
+Sort people and prepare a list of roles. (Actor/Director/Producer)
 
 ```php
 //-- return a list of roles and the people for each role 
@@ -115,9 +128,12 @@ Actors | Directors | Producers
 Actor Name | Directors Name | Producers Name
 
 
-***List the selected films Dates and times, with booking links on the times***
+###Film Dates/Times & Ticket Links 
 
-You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
+List the selected films Dates and times, with booking links on the times.
+
+You can also get a list of dates and times for the selected film to display as clickable links to book tickets.
+
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
 
 ```php
@@ -137,9 +153,40 @@ foreach ($film_start_dates as $date => $times) {
 }
 ```
 
+##Requiremnents
+
+- PHP >= 5.4.0 
+- [Veezi](http://www.veezi.com/) Active Account
+- Veezi API Token
+- [guzzlehttp/guzzle](https://github.com/guzzle/guzzle)
+- [nesbot/Carbon](https://github.com/briannesbitt/Carbon)
+
+
 ##Installation
 
- mmm! let me think this one through at the moment as its simple but does rely on a couple of libraries for assistance. TBC
+The recommended way to install this repo is through [Composer](http://getcomposer.org/)
+
+####Install Through Composer
+
+```
+composer.phar require simondavies/veezi-api-wrapper
+```
+
+####Install Via Github/Without Composer
+
+**Via SSH**
+```
+git clone git@github.com:simondavies/Veezi-API-Wrapper.git target-directory
+cd target-directory
+```
+**Via HTTPS**
+```
+git clone https://github.com/simondavies/Veezi-API-Wrapper.git target-directory
+cd target-directory
+```
+
+Please view the other required repos' install guidelines, if not installing from composer.
+
 
 ##To Do
 As this is currently on going I have a list of to do's below:
@@ -152,7 +199,7 @@ As this is currently on going I have a list of to do's below:
 - [x] Create film dates for each film
 - [ ] More in-depth read me file or wiki 
 
-### License
+###License
 
 The Veezi-API-Wrapper is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
