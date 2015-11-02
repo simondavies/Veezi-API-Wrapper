@@ -14,8 +14,14 @@ use Carbon\Carbon;
  * @version 0.1
  *
  */
-class Dates {
-
+class DatesAndTimes {
+	/**
+	 * Set the main ticketing link url
+	 */
+	const TICKET_LINK = 'https://ticketing.us.veezi.com/purchase/';
+	/**
+	 * @var VeeziAPI\Repositories\Film date
+	 */
 	private $date;
 
 	function __construct($date) {
@@ -76,6 +82,12 @@ class Dates {
 		return $this->date['feature_end'];
 	}
 	/**
+	 * @return String return the actual film end start / time
+	 */
+	public function getTimeLink() {
+		return $this->date['link'];
+	}
+	/**
              * set up the returnable date details
              * @param array $date 
              */
@@ -92,6 +104,7 @@ class Dates {
 				'feature_start' => new Carbon($date->FeatureStartTime),
 				'feature_end' => new Carbon($date->FeatureEndTime),
 				'end' => new Carbon($date->CleanupEndTime),
+				'link' => self::TICKET_LINK . $date->Id
 			];
 		} //-- end if
 	}

@@ -3,4 +3,4 @@
 .LSOverride
 ._*
 /vendor/
-/src/config.php
+/App/config.php

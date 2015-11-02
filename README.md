@@ -31,8 +31,10 @@ foreach ($films as $film) {
     echo '<a href="film.php?filmid=' . $film->getId() . '">' . $film->getTitle() . '</a>';
 }
 ```
+***Film Listing Visual EG ***
+![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
-***Get a particular film***
+***Get a particular film and its details***
 
 ```php
 //-- get the autoload page
@@ -114,9 +116,9 @@ Actor Name | Directors Name | Producers Name
 ***Adding A list of dates and Times***
 
 You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
-![Veezi Film Dates/Times listings](https://raw.githubusercontent.com/simondavies/Veezi-API-Wrapper/develop/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
+![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
 
-```
+```php
 //-- Get the films dates and times
 $film_start_dates = $film->getDatesAndTimes();
 
@@ -139,16 +141,11 @@ foreach ($film_start_dates as $date => $times) {
 As this is currently on going I have a list of to do's below:
 
 - [x] Build the Film Classes
-- [ ] Build the Cinema classes
-- [ ] Build the Screen classes
-- [ ] Build the Sessions classes
-- [ ] Build the Web Sessions classes
+- [ ] Build the Cinema classe(s)
+- [ ] Build the Screen classe(s)
 - [x] Add examples 
-
-Add more functionality to the films area such as:
 - [ ] Create booking links for films
-- [ ] Create film dates for each film
-
+- [ x] Create film dates for each film
 - [ ] More in-depth read me file or wiki 
 
 ### License

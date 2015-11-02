@@ -29,36 +29,31 @@ class Film extends APIRequest
         self::setUpFilmData($film);
     }
     /**
-     * the ID of the current film
-     * @return Integer
+     * @return Integer the ID of the current film
      */
     public function getId(){
         return (string) $this->film['id'];
     }
     /**
-     * the title of the current film
-     * @return String
+     * @return String the title of the current film
      */
     public function getTitle(){
         return $this->film['title'];
     }
     /**
-     * the title of the current film
-     * @return String
+     * @return String the title of the current film
      */
     public function getPoster(){
         return $this->film['poster'];
     }
     /**
-     * the synopsis of the current film
-     * @return String
+     * @return String the synopsis of the current film
      */
     public function getSynopsis(){
         return $this->film['synopsis'];
     }
     /**
-     * the current start date of the current film
-     * @return String
+     * @return String the current start date of the current film
      */
     public function getStartDate(){
         return $this->film['start_date'];
@@ -74,57 +69,51 @@ class Film extends APIRequest
      */
     public function getDatesAndTimes(){
         $datetime = [];
-        foreach ($this->film['dates'] as $date) {
+        foreach ($this->film['dates'] as $index => $date) {
             $readable_date = $date->getStartDate()->format('l jS \of F Y');
-            $datetime[$readable_date][] = $date->getStartDate()->format('H:i');
+            $datetime[$readable_date][$index]['link'] = $date->getTimeLink();
+            $datetime[$readable_date][$index]['time'] = $date->getStartDate()->format('H:i');
         }
         return $datetime;
     }
     /**
-     * the genre of the current film limited to one
-     * @return String
+     * @return String the genre of the current film limited to one
      */
     public function getGenre(){
         return $this->film['genre'];
     }
     /**
-     * the current film distributor
-     * @return String 
+     * @return String the current film distributor
      */
     public function getDistributor(){
         return $this->film['distributor'];
     }
     /**
-     * the rate and reason of the current film
-     * @return Array 
+     * @return Array the rate and reason of the current film
      */
     public function getRating(){
         return $this->film['rating'];
     }
     /**
-     * the length of the current film in minutes
-     * @return Integer 
+     * @return Integer the length of the current film in minutes
      */
     public function getDuration(){
         return (int) $this->film['duration'];
     }
     /**
-     * The type of film 2D, 3D see  api details for more information
-     * @return String 
+     * @return String The type of film 2D, 3D see  api details for more information
      */
     public function getFormat(){
         return $this->film['format'];
     }
     /**
-     * If the current film is restricted to adults only
-     * @return Boolean 
+     * @return Boolean If the current film is restricted to adults only
      */
     public function getRestricted(){
         return $this->film['restricted'];
     }
     /**
-     * the laguage setting of the current film: Audio
-     * @return Array 
+     * @return Array the laguage setting of the current film: Audio
      */
     public function getLanguage(){
         return $this->film['language'];
@@ -143,15 +132,13 @@ class Film extends APIRequest
         return self::sortPeopleIntoRoles();
     }
     /**
-     * the status of the current film: Active, Inactive, Deleted
-     * @return String 
+     * @return String the status of the current film: Active, Inactive, Deleted
      */
     public function getStatus(){
         return $this->film['status'];
     }
     /**
-     * set up the film data as a bit more readable
-     * @param Array $film film data
+     * @param Array set up the film data as a bit more readable
      */
     private function setUpFilmData($film){
         $this->film = [
@@ -217,8 +204,8 @@ class Film extends APIRequest
     private function getFilmDates($film_id){
         $selected_dates = [];
         foreach (parent::request('session') as $date) {
-            if($date->FilmId === $film_id){
-                $selected_dates[] = new Date($date);
+            if($date->FilmId === $film_id && $date->Status === 'Open'){
+                $selected_dates[] = new DatesAndTimes($date);
             }
         }
         return $selected_dates;

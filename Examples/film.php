@@ -23,7 +23,7 @@ if (isset($_GET['filmid']) && !empty($_GET['filmid'])) {
 }
 
 //--- the menu active page
-$menu_active = 'films';
+$menu_active = '';
 ?>
     <?php include_once 'inc/header.inc.php';?>
     <?php include_once 'inc/menu.inc.php';?>
@@ -57,7 +57,9 @@ foreach ($film_start_dates as $date => $times) {
 	echo '<h5>' . $date . '</h5>';
 	echo '<div class="btn-group" role="group" aria-label="">';
 	foreach ($times as $time) {
-		echo '<button type="button" class="btn btn-info">' . $time . '</button>';
+		echo '<a class="btn btn-info" 
+                                href="' . $time['link'] . '?siteToken=' . VEEZI_SITE_TOKEN . '" 
+                                target="_blank">' . $time['time'] . '</a>';
 	}
 	echo '</div>';
 }
