@@ -6,9 +6,12 @@ require_once __DIR__ . '../../App/start.php';
  */
 $films = $Veezi->films();
 
+//--- the menu active page
+$menu_active = 'films';
 ?>
-    <?php include_once 'inc/header.inc.php'; ?>
-     
+    <?php include_once 'inc/header.inc.php'; ?>     
+    <?php include_once 'inc/menu.inc.php'; ?>
+
     <div class="container">
         
         <div class="page-header">
@@ -19,10 +22,9 @@ $films = $Veezi->films();
         <div class="list-group">
             <?php //-- lists films
                 foreach ($films as $film) {
-                    echo '<a href="film.php?filmid=' . $film->getId() . '" class="list-group-item">
-                                <h4 class="list-group-item-heading">'  . $film->getTitle() . '</h4>
-                                <p class="list-group-item-text ellipsis">'  .  $film->getSynopsis()  . '</p>
-                            </a>';
+                    echo '<a href="film.php?filmid=' . $film->getId() . '" class="list-group-item">' . 
+                                '<h4 class="list-group-item-heading">'  . $film->getTitle() . '</h4>' .
+                            '</a>';
                 }
             ?>
         </div>

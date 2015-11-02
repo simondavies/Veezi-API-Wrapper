@@ -28,11 +28,14 @@ $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 $films = $Veezi->films();
 //--loop throught the result and list by film title
 foreach ($films as $film) {
-    echo '<p>' . $film->getTitle(); . '</p>';
-    }
+    echo '<a href="film.php?filmid=' . $film->getId() . '">' . $film->getTitle() . '</a>';
+}
 ```
+***Film Listing Visual EG***
 
-***Get a particular film***
+![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
+
+***Get a particular film and its details***
 
 ```php
 //-- get the autoload page
@@ -48,20 +51,21 @@ $Veezi = new VeeziAPI(VEEZI_API_TOKEN);
 $film = $Veezi->selectedFilm($film_id);
 
 //-- film title
-$film->getTitle();
+$film_title = $film->getTitle();
 
 //-- film synopsis
-$film->getSynopsis();
+$film_synopsis = $film->getSynopsis();
 
 //--film people Actor, Director, Producer
-$film->getPeople();
+$film_people = $film->getPeople();
 ```
 
 There are also other options available to a film instance, some more below.
 - `$film->getGenre()`
 - `$film->getFormat()`
 - `$film->getLanguage()`
-- `$film->getStartDate()`
+- `$film->getDatesAndTimes()`
+- `$film->getRoles()`
 
 There are also some that are returned as Arrays and other objects, take the `$film->getStartDate()`, what is returned is a [Carbon](https://github.com/briannesbitt/Carbon) instance, so it can be converted using any of the methods available through Carbon,
 
@@ -69,15 +73,11 @@ There are also some that are returned as Arrays and other objects, take the `$fi
 //-- set date as a readable date
 $film->getStartDate()->format('l jS \\of F Y');
 ```
-
-I have also created a helper file, to help save time on other tasks, as not sure they should be part of the actual classes themselves for now.
-An example of one of these helper functions can be seen below.
-
-**EG: List the people with in their roles. (Actor/Director/Producer)**
+**EG: Sort people in their roles. (Actor/Director/Producer)**
 
 ```php
-//-- to order the people by their roles 
-$roles = createRolesListing($film->getPeople());
+//-- return a list of roles and the people for each role 
+$roles = $film->getRoles();
 
 <div class="row">
     <div class="col-md-4">
@@ -114,6 +114,25 @@ Actors | Directors | Producers
 ------------ | ------------- | -------------
 Actor Name | Directors Name | Producers Name
 
+***Adding A list of dates and Times***
+
+You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
+![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
+
+```php
+//-- Get the films dates and times
+$film_start_dates = $film->getDatesAndTimes();
+
+//-- Out put the Dates and times
+foreach ($film_start_dates as $date => $times) {
+    echo '<h5>' . $date . '</h5>';
+    echo '<div>';
+    foreach ($times as $time) {
+        echo '<button type="button">' . $time . '</button>';
+    }
+    echo '</div>';
+}
+```
 
 ##Installation
 
@@ -123,16 +142,11 @@ Actor Name | Directors Name | Producers Name
 As this is currently on going I have a list of to do's below:
 
 - [x] Build the Film Classes
-- [ ] Build the Cinema classes
-- [ ] Build the Screen classes
-- [ ] Build the Sessions classes
-- [ ] Build the Web Sessions classes
+- [ ] Build the Cinema classe(s)
+- [ ] Build the Screen classe(s)
 - [x] Add examples 
-
-Add more functionality to the films area such as:
-- [ ] Create booking links for films
-- [ ] Create film dates for each film
-
+- [x] Create booking links for films
+- [x] Create film dates for each film
 - [ ] More in-depth read me file or wiki 
 
 ### License

@@ -1,4 +1,9 @@
+<?php
 
+//--- the menu active page
+$menu_active = 'home';
+
+?>
     <?php include_once 'inc/header.inc.php'; ?>
      
     <div class="container">
