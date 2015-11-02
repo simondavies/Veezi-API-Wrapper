@@ -8,10 +8,22 @@ While being asked to look into the Veezi API,  to enable a website to display it
 ##Official Documentation
 Offical documentation on the Veezi API can be found [Veezi API](http://api.us.veezi.com/Help)
 
+[Requirements](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#requiremnents)
+[Installation](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#installation)
+[Examples](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#code-examples)
+[To Do's](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#to-do)
+[License](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#license)
+
 ##Code Examples
 Included within the repo is an examples folder, here you can find a few working examples of the various options.
 
-###Films
+[Film Listing](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-listing)
+[Selected Film](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#selected-film)
+[FIlm Roles/People](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-roles)
+[Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-dates-times-ticket-links)
+
+
+###Film Listings
 ***Get and list all films***
 
 ```php
@@ -35,7 +47,7 @@ foreach ($films as $film) {
 
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
-***Get a particular film and its details***
+###Selected Film 
 
 ```php
 //-- get the autoload page
@@ -73,7 +85,9 @@ There are also some that are returned as Arrays and other objects, take the `$fi
 //-- set date as a readable date
 $film->getStartDate()->format('l jS \\of F Y');
 ```
-**EG: Sort people in their roles. (Actor/Director/Producer)**
+
+###Film Roles 
+Sort people and prepare a list of roles. (Actor/Director/Producer)
 
 ```php
 //-- return a list of roles and the people for each role 
@@ -115,7 +129,9 @@ Actors | Directors | Producers
 Actor Name | Directors Name | Producers Name
 
 
-***List the selected films Dates and times, with booking links on the times***
+###Film Dates/Times & Ticket Links 
+
+List the selected films Dates and times, with booking links on the times.
 
 You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
@@ -154,7 +170,7 @@ The recommended way to install this repo is through [Composer](http://getcompose
 
 ```
 composer.phar require simondavies/veezi-api-wrapper
-``
+```
 
 ###Install Via Github/Without Composer
 
@@ -183,7 +199,7 @@ As this is currently on going I have a list of to do's below:
 - [x] Create film dates for each film
 - [ ] More in-depth read me file or wiki 
 
-### License
+###License
 
 The Veezi-API-Wrapper is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
