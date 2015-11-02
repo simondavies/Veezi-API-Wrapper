@@ -31,7 +31,7 @@ foreach ($films as $film) {
     echo '<a href="film.php?filmid=' . $film->getId() . '">' . $film->getTitle() . '</a>';
 }
 ```
-***Film Listing Visual EG ***
+***Film Listing Visual EG***
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
 
 ***Get a particular film and its details***
@@ -131,7 +131,7 @@ foreach ($film_start_dates as $date => $times) {
     }
     echo '</div>';
 }
-
+```
 
 ##Installation
 
