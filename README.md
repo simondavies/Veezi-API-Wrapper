@@ -108,13 +108,14 @@ $roles = $film->getRoles();
 </div>
 ```
 
-The output woudl be somethig like:
+The output would be somethig like:
 
 Actors | Directors | Producers
 ------------ | ------------- | -------------
 Actor Name | Directors Name | Producers Name
 
-***Adding A list of dates and Times***
+
+***List the selected films Dates and times, with booking links on the times***
 
 You can also get a list of dates and times for the selected film to display as clickable links to book tickets.  Visual ref below and the code to follow.
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-DateAndTimes.png)
@@ -126,9 +127,11 @@ $film_start_dates = $film->getDatesAndTimes();
 //-- Out put the Dates and times
 foreach ($film_start_dates as $date => $times) {
     echo '<h5>' . $date . '</h5>';
-    echo '<div>';
+    echo '<div class="btn-group" role="group" aria-label="">';
     foreach ($times as $time) {
-        echo '<button type="button">' . $time . '</button>';
+        echo '<a class="btn btn-info" 
+                 href="' . $time['link'] . '?siteToken=' . VEEZI_SITE_TOKEN . '" 
+                 target="_blank">' . $time['time'] . '</a>';
     }
     echo '</div>';
 }

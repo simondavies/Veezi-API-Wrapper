@@ -1,7 +1,7 @@
 {
     "name": "simondavies/veezi-api-wrapper",
     "version": "0.1",
-    "description": "A simple wrapper for the Veezi API, for use on websites",
+    "description": "A simple PHP website wrapper for the Veezi API.",
     "authors": [
         {
             "name": "Simon Davies",
@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": ">=5.4.0",
         "guzzlehttp/guzzle": "^6.1",
         "nesbot/carbon": "^1.20"
     },
