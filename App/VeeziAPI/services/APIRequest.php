@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\RequestException;
 class APIRequest 
 {
 
-        const API_BASE_URI = ['base_uri' =>'https://api.us.veezi.com'];
+        const API_BASE_URI = 'https://api.us.veezi.com';
 
         const API_VERSION = 'v1';
          /**
@@ -23,11 +23,14 @@ class APIRequest
         function __construct()
         {
                 $this->headers  = [
-                      'headers' => ['VeeziAccessToken' => VEEZI_API_TOKEN],
+                      'headers' => [
+                         'verify' => false,
+                         'VeeziAccessToken' => VEEZI_API_TOKEN
+                         ],
                       'Accept' => 'application/json',
                       'Content-Type' => 'application/json',
                   ];
-                $this->client = new Client(self::API_BASE_URI);
+                $this->client = new Client(['base_uri' => self::API_BASE_URI]);
         }
          /**
           * send the request to the API nad return the result as an array
