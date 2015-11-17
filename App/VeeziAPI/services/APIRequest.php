@@ -23,12 +23,10 @@ class APIRequest
         function __construct()
         {
                 $this->headers  = [
-                      'headers' => [
-                         'verify' => false,
-                         'VeeziAccessToken' => VEEZI_API_TOKEN
-                         ],
+                      'headers' => ['VeeziAccessToken' => VEEZI_API_TOKEN],
                       'Accept' => 'application/json',
                       'Content-Type' => 'application/json',
+                      'verify' => false
                   ];
                 $this->client = new Client(['base_uri' => self::API_BASE_URI]);
         }
