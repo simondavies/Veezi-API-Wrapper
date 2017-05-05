@@ -40,7 +40,7 @@ class APIRequest
                      $response = $this->client->request('GET', self::buildURI($action), $this->headers);
                      return json_decode($response->getBody()->getContents());
                } catch (RequestException $e) {
-                     logErrors($e->getMessage());
+                     return $e->getMessage();
                }
          }
          /**
