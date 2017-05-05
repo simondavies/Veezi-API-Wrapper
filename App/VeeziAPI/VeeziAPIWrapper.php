@@ -35,7 +35,7 @@ class VeeziAPIWrapper extends APIRequest {
                   }
                   return $films;
                } catch (Exception $e){
-                     logErrors($e->getMessage());
+                     return $e->getMessage();
                }
          }
 
