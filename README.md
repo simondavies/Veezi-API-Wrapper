@@ -168,6 +168,13 @@ The recommended way to install this repo is through [Composer](http://getcompose
 
 ####Install Through Composer
 
+If your using thsi as the initial project then you can install via:
+
+```
+composer create-project simondavies/veezi-api-wrapper
+```
+Else to include within in a current project run
+
 ```
 composer.phar require simondavies/veezi-api-wrapper
 ```
@@ -185,7 +192,7 @@ git clone https://github.com/simondavies/Veezi-API-Wrapper.git target-directory
 
 ####Set Up
 
-Once the project has been down loaded we need to continue the initial set up.
+Once the project has been downloaded we need to continue the initial set up.
 
 ```
 cd target-directory
