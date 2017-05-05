@@ -5,7 +5,7 @@ A basic PHP wrapper for the [Veezi API](http://api.us.veezi.com/Help).
 
 While being asked to look into the Veezi API,  to enable a website to display its relevant film data onto the site, so not to duplicate work etc. I would need to do a bit of work to manipulate the current data returned, to be used on a website, so not being able to find any current PHP code for use with the Veezi API, thought be nice to build this and thne make it available to Veezi as well as others. 
 
-##Official Documentation
+## Official Documentation
 Offical documentation on the Veezi API can be found [Veezi API](http://api.us.veezi.com/Help)
 
 - [Requirements](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#requiremnents)
@@ -14,7 +14,7 @@ Offical documentation on the Veezi API can be found [Veezi API](http://api.us.ve
 - [To Do's](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#to-do)
 - [License](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#license)
 
-##Code Examples
+## Code Examples
 Included within the repo is an examples folder, here you can find a few working examples of the various options.
 
 - [Film Listing](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-listings)
@@ -23,7 +23,7 @@ Included within the repo is an examples folder, here you can find a few working 
 - [Film Dates/Times & Ticket Links](https://github.com/simondavies/Veezi-API-Wrapper/tree/develop#film-datestimes--ticket-links)
 
 
-###Film Listings
+### Film Listings
 
 Get and display a list of films
 ![Veezi Film Dates/Times listings](/Examples/screenshots/Veezi-screenshot-FilmListings.png)
@@ -46,7 +46,7 @@ foreach ($films as $film) {
 }
 ```
 
-###Selected Film 
+### Selected Film 
 
 ```php
 //-- get the autoload page
@@ -85,7 +85,7 @@ There are also some that are returned as Arrays and other objects, take the `$fi
 $film->getStartDate()->format('l jS \\of F Y');
 ```
 
-###Film Roles 
+### Film Roles 
 Sort people and prepare a list of roles. (Actor/Director/Producer)
 
 ```php
@@ -128,7 +128,7 @@ Actors | Directors | Producers
 Actor Name | Directors Name | Producers Name
 
 
-###Film Dates/Times & Ticket Links 
+### Film Dates/Times & Ticket Links 
 
 List the selected films Dates and times, with booking links on the times.
 
@@ -153,7 +153,7 @@ foreach ($film_start_dates as $date => $times) {
 }
 ```
 
-##Requiremnents
+## Requiremnents
 
 - PHP >= 5.4.0 
 - [Veezi](http://www.veezi.com/) Active Account
@@ -162,11 +162,11 @@ foreach ($film_start_dates as $date => $times) {
 - [nesbot/Carbon](https://github.com/briannesbitt/Carbon)
 
 
-##Installation
+## Installation
 
 The recommended way to install this repo is through [Composer](http://getcomposer.org/)
 
-####Install Through Composer
+#### Install Through Composer
 
 If your using thsi as the initial project then you can install via:
 
@@ -179,7 +179,7 @@ Else to include within in a current project run
 composer.phar require simondavies/veezi-api-wrapper
 ```
 
-####Install Via Github/Without Composer
+#### Install Via Github/Without Composer
 
 **Via SSH**
 ```
@@ -190,7 +190,7 @@ git clone git@github.com:simondavies/Veezi-API-Wrapper.git target-directory
 git clone https://github.com/simondavies/Veezi-API-Wrapper.git target-directory
 ```
 
-####Set Up
+#### Set Up
 
 Once the project has been downloaded we need to continue the initial set up.
 
@@ -217,7 +217,7 @@ Once thats been done, you can check that all is OK by visiting the Examples fold
 ***Please view the other required repos' install guidelines, if not installing from composer.***
 
 
-##To Do
+## To Do
 As this is currently on going I have a list of to do's below:
 
 - [x] Build the Film Classes
@@ -228,7 +228,7 @@ As this is currently on going I have a list of to do's below:
 - [x] Create film dates for each film
 - [ ] More in-depth read me file or wiki 
 
-###License
+### License
 
 The Veezi-API-Wrapper is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
