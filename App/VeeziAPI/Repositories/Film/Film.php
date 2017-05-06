@@ -15,7 +15,7 @@ use VeeziAPI\Services\APIRequest;
  * @author     Simon Davies <simondavies@live.co.uk>
  * @copyright 2015
  * @version 0.1
- * 
+ *
  */
 class Film extends APIRequest
 {
@@ -58,14 +58,14 @@ class Film extends APIRequest
     public function getStartDate(){
         return $this->film['start_date'];
     }
-    /** 
-     * @return Array the overall dates and times available 
+    /**
+     * @return Array the overall dates and times available
      */
     public function getDates(){
         return $this->film['dates'];
     }
-    /** 
-     * @return Array Return the readble date/time details 
+    /**
+     * @return Array Return the readble date/time details
      */
     public function getDatesAndTimes(){
         $datetime = [];
@@ -166,8 +166,8 @@ class Film extends APIRequest
     }
     /**
      * set up the people for the current film
-     * @param  Array $persons 
-     * @return VeeziAPI\Repositories\Film\Person 
+     * @param  Array $persons
+     * @return VeeziAPI\Repositories\Film\Person
      */
     private function setPeople(array $persons, $filmid){
         $people = [];
@@ -210,5 +210,5 @@ class Film extends APIRequest
         }
         return $selected_dates;
     }
-    
+
 }
