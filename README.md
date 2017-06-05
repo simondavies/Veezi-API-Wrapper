@@ -84,6 +84,12 @@ There are also some that are returned as Arrays and other objects, take the `$fi
 //-- set date as a readable date
 $film->getStartDate()->format('l jS \\of F Y');
 ```
+### Selected Film Poster
+Currently it is __NOT__ possible to gain access to the actual poster.  As the posters are currently stored within the protected area of their severs, and in order gain access via a URL you will need to be signed in to the Veezi system.
+
+So adding the url to the posters will fail for now. Veezi are looking into switchign this, so that they can also be referenced.  in the mean time, in order to display posters, you will need to work on your own version/method.
+
+If you need any ideas or solutions please feel free to contact me, on how i get around this.
 
 ### Film Roles 
 Sort people and prepare a list of roles. (Actor/Director/Producer)
